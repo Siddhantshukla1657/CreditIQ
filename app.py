@@ -227,8 +227,7 @@ def load_models():
 
 
 # ─── Sidebar Navigation ───
-st.sidebar.image("public/logo.svg", width=60)
-st.sidebar.markdown("<h2>CreditIQ</h2>", unsafe_allow_html=True)
+st.sidebar.image("public/logo.svg", width=120)
 st.sidebar.markdown("<hr style='border-color: #333;'>", unsafe_allow_html=True)
 page = st.sidebar.radio(
     "Navigate",

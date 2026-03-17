@@ -13,61 +13,61 @@ An enterprise-grade, ML-powered web application designed to predict the probabil
 
 ---
 
-## 📸 Dashboard Previews
+## Dashboard Previews
 
-### 🎯 Live Risk Scorer (The Core Feature)
+### Live Risk Scorer (The Core Feature)
 *Real-time borrower default probability assessment based on a comprehensive input profile.*
 ![Risk Scorer Prediction](screenshots/risk_result.png)
 
-### 📊 Exploratory Data Analysis (EDA)
+### Exploratory Data Analysis (EDA)
 *Deep dive into 32,000+ loan records exploring default patterns, feature correlations, and data distributions.*
 ![EDA Dashboard](screenshots/eda_dashboard.png)
 
-### 🤖 Model Performance Evaluation
+### Model Performance Evaluation
 *Side-by-side comparison of machine learning models with ROC-AUC analysis, confusion matrices, and feature importance.*
 ![Model Performance Evaluation](screenshots/model_performance.png)
 
 ---
 
-## 🚀 Key Features
+## Key Features
 
-### 📊 EDA Dashboard
+### EDA Dashboard
 - Dynamic distribution plots for age, income, and loan amounts.
 - Default rate analysis segmented by loan grade (A–G) and loan purpose.
 - Interactive feature correlation heatmap.
 - Class imbalance visualizations highlighting real-world data challenges.
 
-### 🤖 Model Performance
+### Model Performance
 - Direct, side-by-side performance comparison of Logistic Regression vs Random Forest.
 - Interactive visualization of ROC curves and analytical confusion matrices.
 - Clear metrics breakdown (Accuracy, Precision, Recall, F1-Score).
 - Identification of top 10 feature importance rankings affecting default probability.
 
-### 🎯 Live Risk Scorer ⭐
+### Live Risk Scorer
 - Dynamic borrower profile data entry form.
 - Real-time application of Random Forest to instantly predict default probability.
-- Intuitive, color-coded risk gauge (🟢 Low Risk, 🟡 Medium Risk, 🔴 High Risk).
+- Intuitive, color-coded risk gauge (Low Risk, Medium Risk, High Risk).
 - Granular breakdown of top risk factors dynamically driving the specific prediction.
 
 ---
 
-## 📈 Model Results
+## Model Results
 
 The project involved training models on highly imbalanced data requiring thoughtful preprocessing and scaling techniques. 
 
 | Metric | Logistic Regression | Random Forest |
 |:---:|:---:|:---:|
-| **Accuracy** | 79.07% | **93.81%** 🏆 |
-| **Precision** | 50.92% | **97.84%** 🏆|
-| **Recall** | **79.05%** 🏆 | 72.89% |
-| **F1-Score** | 61.94% | **83.54%** 🏆 |
-| **ROC-AUC** | 0.8680 | **0.9391** 🏆 |
+| **Accuracy** | 79.07% | **93.81%** (Best) |
+| **Precision** | 50.92% | **97.84%** (Best) |
+| **Recall** | **79.05%** (Best) | 72.89% |
+| **F1-Score** | 61.94% | **83.54%** (Best) |
+| **ROC-AUC** | 0.8680 | **0.9391** (Best) |
 
 *The **Random Forest** classifier overwhelmingly performed the strongest, making it the primary model used for live risk assessments.*
 
 ---
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 | Architecture Layer | Technology |
 |--------------------|------------|
@@ -80,12 +80,12 @@ The project involved training models on highly imbalanced data requiring thought
 
 ---
 
-## 🏃 How to Run Locally
+## How to Run Locally
 
 1. **Clone the repository:**
 ```bash
-git clone https://github.com/Siddhant/loan-default-predictor.git
-cd loan-default-predictor
+git clone https://github.com/Siddhantshukla1657/CreditIQ.git
+cd CreditIQ
 ```
 
 2. **Install dependencies:**
@@ -109,10 +109,10 @@ py -3.13 -m streamlit run app.py
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```text
-loan-default-predictor/
+CreditIQ/
 ├── app.py                  # Main Streamlit dashboard application
 ├── model.py                # Pipeline script for data cleaning, model training, and exporting
 ├── data/
@@ -133,7 +133,7 @@ loan-default-predictor/
 
 ---
 
-## 📊 Dataset Overview
+## Dataset Overview
 
 **Source:** [Kaggle — Credit Risk Dataset](https://www.kaggle.com/datasets/laotse/credit-risk-dataset)  
 **Total Records:** ~32,581  
@@ -155,7 +155,7 @@ loan-default-predictor/
 
 ---
 
-## 👤 Author
+## Author
 
 **Siddhant Shukla**  
 *Built as a portfolio project demonstrating an end-to-end Machine Learning pipeline applied to institutional credit risk analysis.*

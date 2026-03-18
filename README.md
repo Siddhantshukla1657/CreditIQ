@@ -19,13 +19,21 @@ An enterprise-grade, ML-powered web application designed to predict the probabil
 *Real-time borrower default probability assessment based on a comprehensive input profile.*
 ![Risk Scorer Prediction](screenshots/risk_result.png)
 
-### Exploratory Data Analysis (EDA)
-*Deep dive into 32,000+ loan records exploring default patterns, feature correlations, and data distributions.*
-![EDA Dashboard](screenshots/eda_dashboard.png)
+### Borrower Profile Input
+*Dynamic borrower profile data entry form.*
+![Borrower Profile Input](screenshots/borrower_profile.png)
 
-### Model Performance Evaluation
-*Side-by-side comparison of machine learning models with ROC-AUC analysis, confusion matrices, and feature importance.*
-![Model Performance Evaluation](screenshots/model_performance.png)
+### Risk Level Gauge
+*Intuitive, color-coded risk gauge indicating the predicted default risk.*
+![Risk Level Gauge](screenshots/risk_level_gauge.png)
+
+### Top Risk Factors
+*Granular breakdown of risk factors dynamically driving the specific prediction.*
+![Top Risk Factors](screenshots/top_risk_factors.png)
+
+### Model Summary
+*Detailed overview of model performance, metrics, and comparisons.*
+![Model Summary](screenshots/model_summary.png)
 
 ---
 
@@ -118,9 +126,11 @@ CreditIQ/
 ├── data/
 │   └── credit_risk_dataset.csv   # Real-world Kaggle dataset containing 32,581 loan records
 ├── screenshots/            # Directory containing UI demonstration visuals
-│   ├── eda_dashboard.png
-│   ├── model_performance.png
-│   └── risk_result.png
+│   ├── borrower_profile.png
+│   ├── model_summary.png
+│   ├── risk_level_gauge.png
+│   ├── risk_result.png
+│   └── top_risk_factors.png
 ├── assets/                 # Auto-generated directory for serialized models
 │   ├── lr_model.pkl        # Serialized Logistic Regression Model
 │   ├── rf_model.pkl        # Serialized Random Forest Model

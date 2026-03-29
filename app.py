@@ -200,6 +200,11 @@ st.markdown("""
 PLOTLY_TEMPLATE = "plotly_dark"
 COLOR_PALETTE = ['#4facfe', '#00f2fe', '#f5576c', '#fa709a']
 
+
+def format_inr(value):
+    """Format numeric value as Indian rupee with comma separators."""
+    return f"₹{value:,.0f}"
+
 # ─── Data Loading (cached) ───
 @st.cache_data
 def load_raw_data():
@@ -285,7 +290,7 @@ if page == "EDA Dashboard":
         st.markdown(f"""
         <div class="metric-card">
             <div class="metric-label">Avg Loan Amount</div>
-            <div class="metric-value">${avg_loan:,.0f}</div>
+            <div class="metric-value">{format_inr(avg_loan)}</div>
         </div>""", unsafe_allow_html=True)
     with c4:
         st.markdown(f"""
@@ -297,7 +302,7 @@ if page == "EDA Dashboard":
         st.markdown(f"""
         <div class="metric-card">
             <div class="metric-label">Avg Income</div>
-            <div class="metric-value">${avg_income:,.0f}</div>
+            <div class="metric-value">{format_inr(avg_income)}</div>
         </div>""", unsafe_allow_html=True)
 
     st.markdown("<br>", unsafe_allow_html=True)
@@ -310,7 +315,7 @@ if page == "EDA Dashboard":
             df, x='loan_amnt', nbins=50,
             color='loan_status',
             color_discrete_map={0: '#3498db', 1: '#e74c3c'},
-            labels={'loan_amnt': 'Loan Amount ($)', 'loan_status': 'Default Status'},
+            labels={'loan_amnt': 'Loan Amount (₹)', 'loan_status': 'Default Status'},
             template=PLOTLY_TEMPLATE,
             barmode='overlay',
             opacity=0.75,
@@ -318,7 +323,7 @@ if page == "EDA Dashboard":
         fig.update_layout(
             height=380, margin=dict(l=20, r=20, t=30, b=20),
             legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1),
-            xaxis_title="Loan Amount ($)", yaxis_title="Count",
+            xaxis_title="Loan Amount (₹)", yaxis_title="Count",
             font=dict(family="Inter"), paper_bgcolor='#0a0a0a', plot_bgcolor='#0a0a0a'
         )
         fig.for_each_trace(lambda t: t.update(name='No Default' if t.name == '0' else 'Default'))
@@ -397,7 +402,7 @@ if page == "EDA Dashboard":
             color='loan_status',
             color_discrete_map={0: '#3498db', 1: '#e74c3c'},
             template=PLOTLY_TEMPLATE,
-            labels={'person_income': 'Annual Income ($)', 'loan_status': 'Default Status'}
+            labels={'person_income': 'Annual Income (₹)', 'loan_status': 'Default Status'}
         )
         fig.update_layout(
             height=380, margin=dict(l=20, r=20, t=30, b=20),
@@ -595,9 +600,9 @@ elif page == "Risk Scorer":
     st.sidebar.markdown("### Borrower Profile")
 
     age = st.sidebar.slider("Applicant Age", 18, 80, 30)
-    income = st.sidebar.number_input("Annual Income ($)", 5000, 500000, 50000, step=1000)
+    income = st.sidebar.number_input("Annual Income (₹)", 5000, 500000, 50000, step=1000)
     emp_length = st.sidebar.slider("Employment Length (years)", 0, 40, 5)
-    loan_amnt = st.sidebar.number_input("Loan Amount ($)", 500, 35000, 10000, step=500)
+    loan_amnt = st.sidebar.number_input("Loan Amount (₹)", min_value=500, value=10000, step=500)
     loan_int_rate = st.sidebar.slider("Interest Rate (%)", 5.0, 24.0, 11.0, step=0.1)
     loan_grade = st.sidebar.selectbox("Loan Grade", ["A", "B", "C", "D", "E", "F", "G"])
     loan_intent = st.sidebar.selectbox(
@@ -794,7 +799,7 @@ elif page == "Risk Scorer":
             | Parameter | Value |
             |---|---|
             | **Age** | {age} years |
-            | **Income** | ${income:,} |
+            | **Income** | {format_inr(income)} |
             | **Employment** | {emp_length} years |
             | **Home** | {home_ownership} |
             | **Credit History** | {cred_hist_length} years |
@@ -803,7 +808,7 @@ elif page == "Risk Scorer":
             st.markdown(f"""
             | Parameter | Value |
             |---|---|
-            | **Loan Amount** | ${loan_amnt:,} |
+            | **Loan Amount** | {format_inr(loan_amnt)} |
             | **Interest Rate** | {loan_int_rate}% |
             | **Loan Grade** | {loan_grade} |
             | **Purpose** | {loan_intent} |

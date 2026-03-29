@@ -40,7 +40,7 @@ An enterprise-grade, ML-powered web application designed to predict the probabil
 ## Key Features
 
 ### EDA Dashboard
-- Dynamic distribution plots for age, income, and loan amounts.
+- Dynamic distribution plots for age, income, and loan amounts (displayed in INR ₹).
 - Default rate analysis segmented by loan grade (A–G) and loan purpose.
 - Interactive feature correlation heatmap.
 - Class imbalance visualizations highlighting real-world data challenges.
@@ -56,6 +56,8 @@ An enterprise-grade, ML-powered web application designed to predict the probabil
 - Real-time application of Random Forest to instantly predict default probability.
 - Intuitive, color-coded risk gauge (Low Risk, Medium Risk, High Risk).
 - Granular breakdown of top risk factors dynamically driving the specific prediction.
+- Currency-localized borrower inputs and summaries in Indian Rupees (₹).
+- Loan amount input without an upper limit cap.
 
 ---
 
@@ -153,9 +155,9 @@ CreditIQ/
 | Raw Feature Name | Description Context |
 |------------------|---------------------|
 | `person_age` | Applicant's age |
-| `person_income` | Annual reported income |
+| `person_income` | Annual reported income (displayed as INR ₹ in app UI) |
 | `person_emp_length` | Total length of continuous employment (in years) |
-| `loan_amnt` | Total requested credit/loan amount |
+| `loan_amnt` | Total requested credit/loan amount (displayed as INR ₹ in app UI) |
 | `loan_int_rate` | Approved interest rate for the loan |
 | `loan_percent_income` | Crucial risk metric: Loan-to-Income percentage |
 | `loan_grade` | Standardized institutional risk grading assigned (A–G) |
